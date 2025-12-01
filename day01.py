@@ -1,20 +1,6 @@
 from src import Debug, Reader
 
 
-class Cycle:
-    def __init__(self, start: int, limit: int):
-        self._value = start
-        self._limit = limit
-
-    def _cycle(self, value: int):
-        self._value += value
-        if self._value > self._limit:
-            self._value = self._value % self._limit
-
-    def cross_zero(self, delta: int) -> int:
-        return self._value + delta
-
-
 # Part 1
 
 with Reader(1, example=False) as reader:
