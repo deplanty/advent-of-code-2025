@@ -22,7 +22,10 @@ class Reader:
             yield line.rstrip()
 
     def _split(self, line: str, separator: str = " ") -> list:
-        return line.split(separator)
+        if separator:
+            return line.split(separator)
+        else:
+            return list(line)
 
     def skip(self, n_chars: int) -> str:
         return self.fid.read(n_chars)
