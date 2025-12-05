@@ -47,7 +47,7 @@ class Reader:
 
         return self.fid.readline().rstrip()
 
-    def iter_lines(self, type=str) -> Generator[Any, Any, Any]:
+    def iter_lines(self, type: type = str) -> Generator[Any, Any, Any]:
         """
         Yield one line after the other.
         """
@@ -81,7 +81,7 @@ class Reader:
                 else:
                     yield [t(value) for value, t in zip(line, types)]
 
-    def get_line(self, separator: str = " ", *types) -> list:
+    def get_line(self, separator: str = " ", *types: type) -> list:
         """
         Return one line as a list of the given types.
         """
@@ -93,7 +93,7 @@ class Reader:
         else:
             return next(self.iter_split(separator, *types))
 
-    def get_table(self, separator: str = " ", *types) -> list[list]:
+    def get_table(self, separator: str = " ", *types: type) -> list[list]:
         """
         Return a table of the given types.
 
@@ -116,7 +116,7 @@ class Reader:
         else:
             return [line for line in self.iter_split(separator, *types)]
 
-    def get_field(self, separator: str = " ", type=str) -> list[list]:
+    def get_field(self, separator: str = " ", type: type = str) -> list[list]:
         """
         Return a table where each cell has the given type.
 
