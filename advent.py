@@ -3,12 +3,9 @@ import argparse
 
 
 def create(day: int):
-    def create_file(file):
-        if not os.path.exists(file):
-            open(file, "w", encoding="utf-8").close()
-
     # Python file
-    create_file(f"day{day:02d}.py")
+    create_file(f"day{day:02d}p1.py")
+    create_file(f"day{day:02d}p2.py")
     create_file(f"inputs/day{day:02d}.txt")
     create_file(f"inputs/day{day:02d}ex.txt")
 
@@ -16,6 +13,10 @@ def create(day: int):
 def create_folders():
     if not os.path.exists("inputs/"):
         os.mkdir("inputs/")
+
+def create_file(file):
+    if not os.path.exists(file):
+        open(file, "w", encoding="utf-8").close()
 
 
 if __name__ == "__main__":
