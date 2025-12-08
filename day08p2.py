@@ -1,23 +1,6 @@
-from dataclasses import dataclass
 from itertools import combinations
-import math
 
-from src import Debug, Reader
-
-
-@dataclass
-class Vector3:
-    x: int = 0
-    y: int = 0
-    z: int = 0
-
-    def __hash__(self) -> int:
-        return hash((self.x, self.y, self.z))
-
-    def distance_to(self, point: "Vector3") -> float:
-        return math.sqrt(
-            (self.x - point.x) ** 2 + (self.y - point.y) ** 2 + (self.z - point.z) ** 2
-        )
+from src import Debug, Reader, Vector3
 
 
 day = 8
