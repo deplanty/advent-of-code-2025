@@ -1,4 +1,5 @@
-from .chrono import Chrono  # noqa: F401
-from .debug import Debug  # noqa: F401
-from .index import Index  # noqa: F401
-from .reader import Reader  # noqa: F401
+from .chrono import Chrono
+from .debug import Debug
+from .draw import draw_table
+from .index import Index
+from .reader import Reader
