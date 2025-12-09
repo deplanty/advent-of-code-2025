@@ -24,5 +24,5 @@ class Rect2:
     def height(self) -> float:
         return self.size.y
 
-    def area(self) -> int:
+    def area(self) -> float:
         return self.size.x * self.size.y

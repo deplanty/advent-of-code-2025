@@ -6,3 +6,4 @@ from .reader import Reader
 from .vector2 import Vector2
 from .vector3 import Vector3
 from .rect2 import Rect2
+from .line2 import Line2
