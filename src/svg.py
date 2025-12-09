@@ -5,7 +5,7 @@ from src import Vector2, Rect2
 
 
 SVG_TEMPLATE = """<svg viewBox="{view_box.x} {view_box.y} {view_box.width} {view_box.height}" height="{view_box.height}" width="{view_box.width}" xmlns="http://www.w3.org/2000/svg">
-  <polygon points="{points}" style="fill:#80a1e100;stroke:black;stroke-width:1" />
+  <polygon points="{points}" style="fill:#80a1e1;stroke:black;stroke-width:1" />
 </svg>"""
 
 
