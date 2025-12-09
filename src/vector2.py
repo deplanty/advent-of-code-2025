@@ -4,8 +4,8 @@ import math
 
 @dataclass
 class Vector2:
-    x: int = 0
-    y: int = 0
+    x: float = 0
+    y: float = 0
 
     def __str__(self) -> str:
         return f"Vector2({self.x}, {self.y})"
