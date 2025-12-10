@@ -1,4 +1,6 @@
 import numpy as np
+import sympy as sp
+import diophantine
 
 from src import Debug, Reader
 
@@ -24,17 +26,15 @@ with Reader(day, example) as reader:
         for row in range(len(wires)):
             for column in wires[row]:
                 matrix[column, row] = 1
-
         target = np.array(joltage, dtype="uint")
-        result = np.linalg.lstsq(matrix, joltage, 1)[0]
-        debug(joltage)
-        debug(matrix)
-        debug(result)
-        debug(np.sum(result), int(np.sum(result)))
-        debug(matrix.dot(result))
-        debug()
 
-        total += int(np.sum(result))
+        m = sp.Matrix(matrix)
+        t = sp.Matrix(target)
+        r = diophantine.solve(m, t)
+        debug(m)
+        debug(t)
+        debug(r)
+        debug()
 
 
 print("Day", day, "part 2:", total)
