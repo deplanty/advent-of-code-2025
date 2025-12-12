@@ -1,5 +1,6 @@
-import os
 import argparse
+import os
+import time
 
 from dotenv import load_dotenv
 import jinja2
@@ -9,7 +10,7 @@ import requests
 load_dotenv()
 
 
-def create(day: int):
+def create(year: int, day: int):
     # Generate the python files (part 1 and part 2) for the day
     environment = jinja2.Environment(loader=jinja2.FileSystemLoader("templates"))
     template = environment.get_template("day.py")
@@ -20,7 +21,7 @@ def create(day: int):
     session_cookie = os.getenv("session")
     if session_cookie:
         r = requests.get(
-            f"https://adventofcode.com/2025/day/{day}/input",
+            f"https://adventofcode.com/{year}/day/{day}/input",
             headers={"User-Agent": "deplanty"},
             cookies={"session": session_cookie},
         )
@@ -44,10 +45,13 @@ def create_file(file, text: str = ""):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "year", nargs="?", type=int, default=time.strftime("%Y"), help="The year of the puzzle"
+    )
     parser.add_argument("day", nargs="+", type=int, help="The days to create.")
 
     args = parser.parse_args()
 
     create_folders()
     for day in args.day:
-        create(day)
+        create(args.year, day)
