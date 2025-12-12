@@ -5,35 +5,17 @@ def batteries_value(batteries: list[int]) -> int:
     return int("".join(str(x) for x in batteries))
 
 
+day = 3
+example = True
+
 debug = Debug()
 
-# Part 1
-
+# Day 3 Part 2
 debug.disable()
+
 total = 0
-with Reader(3, example=False) as reader:
-    for bank in reader.iter_split("", int):
-        # Initialize with the first two batteries
-        batteries = bank[:2]
-        # Iterate from the third battery
-        for battery in bank[2:]:
-            check_1 = [batteries[0], battery]
-            check_2 = [batteries[1], battery]
-            if batteries_value(check_1) > batteries_value(batteries):
-                batteries = check_1
-            if batteries_value(check_2) > batteries_value(batteries):
-                batteries = check_2
-        debug(bank, batteries_value(batteries))
-        total += batteries_value(batteries)
 
-print("Part 1:", total)
-
-
-# Part 2
-
-debug.disable()
 links = 12
-total = 0
 with Reader(3, example=False) as reader:
     for bank in reader.iter_split("", int):
         # The biggest starts with the greater digit
@@ -60,5 +42,4 @@ with Reader(3, example=False) as reader:
         debug(len(bank), bank)
         total += batteries_value(bank[:links])
 
-
-print("Part 2:", total)
+print("Day", day, "part 2:", total)
