@@ -10,7 +10,7 @@ example = False
 debug = Debug()
 
 # Day 10 Part 1
-# debug.disable()
+debug.disable()
 
 
 def toggle(lights: list[bool], indices: list[int]) -> list[bool]:

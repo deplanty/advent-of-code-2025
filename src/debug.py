@@ -31,6 +31,9 @@ class Debug:
 
     # Methods
 
+    def is_enabled(self) -> bool:
+        return self._debug
+
     def input(self, prompt: str) -> str:
         if self._debug:
             return input(prompt)

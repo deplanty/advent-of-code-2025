@@ -1,6 +1,7 @@
 from src import Debug, Reader, Index
 from src import draw_table
 
+
 day = 7
 
 debug = Debug()
@@ -46,3 +47,7 @@ print(splitters)
 draw_table(field, {"^": "#80aae1"})
 
 print("Day", day, "part 2:", total * 2)
+
+import sys
+
+sys.exit(1)

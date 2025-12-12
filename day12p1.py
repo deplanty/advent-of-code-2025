@@ -36,7 +36,7 @@ example = False
 debug = Debug()
 
 # Day 12 Part 1
-# debug.disable()
+debug.disable()
 
 total = 0
 

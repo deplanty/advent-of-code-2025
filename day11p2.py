@@ -21,8 +21,9 @@ with Reader(day, example) as reader:
         graph[device] = attached_line.split(" ")
 
     # [(current, fft seen, dac seen)]
+    limit = 12
     paths: list[tuple[str, bool, bool]] = [("svr", False, False)]
-    while paths:
+    while paths and limit > 0:
         paths_next: list[tuple[str, bool, bool]] = list()
         for current, fft, dac in paths:
             devices = graph[current]
@@ -38,5 +39,11 @@ with Reader(day, example) as reader:
                         dac = True
                     paths_next.append((device, fft, dac))
         paths = paths_next
+        limit -= 1
 
 print("Day", day, "part 2:", total)
+
+
+import sys
+
+sys.exit(1)

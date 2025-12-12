@@ -11,7 +11,7 @@ example = True
 debug = Debug()
 
 # Day 10 Part 2
-# debug.disable()
+debug.disable()
 
 total = 0
 
@@ -38,3 +38,8 @@ with Reader(day, example) as reader:
 
 
 print("Day", day, "part 2:", total)
+
+
+import sys
+
+sys.exit(1)

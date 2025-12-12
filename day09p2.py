@@ -10,11 +10,13 @@ example = False
 debug = Debug()
 
 # Day 8 Part 1
-# debug.disable()
+debug.disable()
 
 with Reader(day, example) as reader:
     tiles = [Vector2(x, y) for x, y in reader.iter_split(",", int)]
-svg.export_polygon("day09.svg", tiles)
+
+if debug.is_enabled():
+    svg.export_polygon("day09.svg", tiles)
 
 # Here we keep the tiles [0 - 1] to connect start and end of the polygon
 polygon: list[Line2] = [Line2(tiles[i - 1], tiles[i]) for i in range(len(tiles))]
@@ -50,3 +52,8 @@ for start, end in combinations(tiles, 2):
             square = (start, end)
 
 print("Day", day, "part X:", total)
+
+
+import sys
+
+sys.exit(1)
