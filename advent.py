@@ -1,7 +1,12 @@
 import os
 import argparse
 
+from dotenv import load_dotenv
 import jinja2
+import requests
+
+
+load_dotenv()
 
 
 def create(day: int):
@@ -12,7 +17,17 @@ def create(day: int):
     create_file(f"day{day:02d}p2.py", text=template.render(day=day, part=2))
 
     # Create the input files (full input and example input)
-    create_file(f"inputs/day{day:02d}.txt")
+    session_cookie = os.getenv("session")
+    if session_cookie:
+        r = requests.get(
+            f"https://adventofcode.com/2025/day/{day}/input",
+            headers={"User-Agent": "deplanty"},
+            cookies={"session": session_cookie},
+        )
+        text = r.text.rstrip()
+    else:
+        text = ""
+    create_file(f"inputs/day{day:02d}.txt", text=text)
     create_file(f"inputs/day{day:02d}ex.txt")
 
 
